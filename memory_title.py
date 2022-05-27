@@ -83,11 +83,11 @@ class Tile:
     def __init__(self):
         self.state = NORMAL
         self.button_clicked = True
-        self.button = [Button(image=mark_img, text='', command = lambda i=i: self.button_click(i), state = self.state) for i in range(16)]
-        # self.button=[]
-        # for i in range(16):
-        #    b=Button(image=mark_img, command = lambda i=i: self.button_click(i), state = self.state) for i in range(16)
-        #    self.button.append(b)
+    
+        self.button=[]
+        for i in range(16):
+           b=Button(image=mark_img, command = lambda i=i: self.button_click(i), state = self.state) for i in range(16)
+           self.button.append(b)
         
     def show_question_mark(self):
         for i in range(16):
