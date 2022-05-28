@@ -65,11 +65,20 @@ pineapple1= pineapple.resize((100,100))
 pineapple1 = pineapple1.save('C:/Users/richardlin/Downloads/pineapple1.png')
 pineapple_img=PhotoImage(file='C:/Users/richardlin/Downloads/pineapple1.png')
 
-num ='1122334455667788'
+#num ='1122334455667788'
 
-d={'1':apple_img,'2':pear_img,'3':orange_img,'4':banana_img,'5':pineapple_img,'6':cherry_img,'7':strawberry_img,'8':watermelon_img}
-num = list(num)
+#d={'1':apple_img,'2':pear_img,'3':orange_img,'4':banana_img,'5':pineapple_img,'6':cherry_img,'7':strawberry_img,'8':watermelon_img}
+
+
+num=[(1,apple_img),(2,pear_img), (3,orange_img),(4,banana_img),(5,pineapple_img), (6,cherry_img), (7,strawberry_img), (8,watermelon_img),(1,apple_img),(2,pear_img), (3,orange_img),(4,banana_img),(5,pineapple_img), (6,cherry_img), (7,strawberry_img), (8,watermelon_img)]
+
+
+
 random.shuffle(num)
+
+print(num)
+
+
 
 score = 0
 
@@ -83,11 +92,11 @@ class Tile:
     def __init__(self):
         self.state = NORMAL
         self.button_clicked = True
-    
+        #self.button = [Button(image=mark_img, text='', command = lambda i=i: self.button_click(i), state = self.state) for i in range(16)]
         self.button=[]
         for i in range(16):
-           b=Button(image=mark_img, command = lambda i=i: self.button_click(i), state = self.state) for i in range(16)
-           self.button.append(b)
+            b=Button(image=mark_img, command = lambda i=i: self.button_click(i), state = self.state)
+            self.button.append(b)
         
     def show_question_mark(self):
         for i in range(16):
@@ -96,7 +105,7 @@ class Tile:
 
     def button_click(self,i):
         global score, track,start, duration
-        self.button[i].config(image= d[num[i]],state = self.state)
+        self.button[i].config(image= num[i][1],state = self.state)
         if self.button[i]['text'] == '':
             track.append(i)
             self.button[i]['text']= 'x'
