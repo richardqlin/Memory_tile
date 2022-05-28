@@ -84,8 +84,7 @@ score = 0
 
 track=[]
 
-timer = IntVar()
-duration=0
+
 
 start = time.time()
 class Tile:
@@ -127,18 +126,9 @@ class Tile:
                 self.button[track[0]]['text']=''
                 self.button[track[1]]['text']=''
             track=[]
-        if score == 8:
-            messagebox.showinfo('score','Taken time:'+str(duration))
-        duration = round(time.time() - start,2)
-        print(duration)
-        timer.set(duration)
+   
        
         
 tile= Tile()
-label1=Label(root,text= ' Taken Time: ')
-label1.grid(row = 0 ,column=2)
-label= Label(root,textvariable =  timer)
-label.grid(row = 0, column=3)
-button_quit= Button(root,text='Quit', command=quit)
-button_quit.grid(row=0, column=0)
+
 tile.show_question_mark()
