@@ -117,7 +117,7 @@ class Tile:
             if num[track[0]]==num[track[1]]:
                 self.button[track[0]].config(state=DISABLED)
                 self.button[track[1]].config(state=DISABLED)
-                score += 1
+               
             else:     
                 self.button[track[0]].config(image=mark_img, state=self.state)
                 self.button[track[1]].config(image=mark_img, state =self.state)
